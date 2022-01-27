@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LetturaDati">
         <activity
+            android:name=".Visualizza_Activity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -12,9 +12,18 @@ import java.util.ArrayList;
        }
            public void addBrano (String titolo){
 
-               Brano br = new Brano(titolo);
-               listaBrani.add(br);
+               Brano br = new Brano(titolo); //crea un oggetto di tipo brano
+               listaBrani.add(br);  //
            }
 
+           public String listaSong(){
+           StringBuilder sbSong = new StringBuilder();
+           for(Brano brc : listaBrani){
+               sbSong.append(brc.getTitolo().toString());
+               sbSong.append("\n");
+           }
+
+           return sbSong.toString();
+           }
     }
 

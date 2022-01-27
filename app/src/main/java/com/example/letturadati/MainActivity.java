@@ -2,6 +2,7 @@ package com.example.letturadati;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,7 +12,7 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
     Button btnIns, btnVis;
-    EditText durata, genere, autore, titolo;
+    EditText durata, autore, titolo;
     GestioneBrani gb;
     Spinner spEl;
 
@@ -26,9 +27,8 @@ public class MainActivity extends AppCompatActivity {
         btnVis = findViewById(R.id.visualizza);
         titolo = findViewById(R.id.titolo);
         autore = findViewById(R.id.autore);
-        genere = findViewById(R.id.genere);
         durata = findViewById(R.id.durata);
-        gb = new GestioneBrani();
+        gb = new GestioneBrani();//instanziato
         spEl = (Spinner)findViewById(R.id.elenco);
 
         ArrayAdapter<String> spGen = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,elencoGeneri);
@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
         btnVis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent vis = new Intent(MainActivity.this,Visualizza_Activity.class);
+                vis.putExtra("listSong", gb.listaSong());
+                startActivity(vis);//starto l'activity
             }
         });
     }
